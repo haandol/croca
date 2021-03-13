@@ -1,0 +1,1084 @@
+{
+  "version": "9.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CrocaOriginStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CrocaOriginStack.template.json"
+      },
+      "metadata": {
+        "/CrocaOriginStack/EventReplicationRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventReplicationRole0AF0D664",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "OriginStack.createCodecommitRule (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:20:34)",
+              "new OriginStack (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:12:10)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/EventReplicationRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventReplicationRoleDefaultPolicy9494DFB5",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Function.addToPrincipal (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/grant.ts:168:61)",
+              "Function.grantAllPutEvents (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/event-bus.ts:215:22)",
+              "OriginStack.createCodecommitRule (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:23:21)",
+              "new OriginStack (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:12:10)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/CrocaReplicateRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrocaReplicateRuleB09AF36E",
+            "trace": [
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:130:22)",
+              "OriginStack.createCodecommitRule (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:31:5)",
+              "new OriginStack (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:12:10)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/CodecommitRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CodecommitRole40C25E19",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "OriginStack.createAssumeRole (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:50:28)",
+              "new OriginStack (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:13:10)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/CodecommitRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CodecommitRoleDefaultPolicy89C9943F",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Role.addToPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:376:17)",
+              "OriginStack.createAssumeRole (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:56:20)",
+              "new OriginStack (/Users/dongkyl/Documents/git/croca/lib/stacks/origin-stack.ts:13:10)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:9:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:201:5)",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:197:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/dongkyl/Documents/git/croca/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/CrocaOriginStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:31:27)",
+              "/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:201:5)",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:197:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/dongkyl/Documents/git/croca/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      }
+    },
+    "CrocaReplicaStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CrocaReplicaStack.template.json"
+      },
+      "metadata": {
+        "/CrocaReplicaStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d",
+              "id": "a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d",
+              "packaging": "zip",
+              "sourceHash": "a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d",
+              "s3BucketParameter": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3BucketDDD15B67",
+              "s3KeyParameter": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988",
+              "artifactHashParameter": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dArtifactHashBC261AD6"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/construct-compat.ts:431:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "ReplicaStack.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:143:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/code.ts:267:20)",
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:29)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/CrocaReplicaBus/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CrocaReplicaBusB8B9DFE0",
+            "trace": [
+              "new EventBus (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/event-bus.ts:293:22)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:12:22)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/ReplicaPolicy": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ReplicaPolicy",
+            "trace": [
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:15:5)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/CodeBuildRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CodeBuildRole728CBADE",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:22:18)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/CodeBuildRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CodeBuildRoleDefaultPolicy829527DE",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Role.addToPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:376:17)",
+              "Project.addToRolePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-codebuild/lib/project.ts:225:17)",
+              "new Project (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-codebuild/lib/project.ts:908:10)",
+              "ReplicationRule.createCodeBuildProject (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:44:21)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:24:26)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaLogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainapnortheast1ReplicationRuleReplicaLogGroup805A9102",
+            "trace": [
+              "new LogGroup (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-logs/lib/log-group.ts:373:22)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:20:22)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainapnortheast1ReplicationRuleSyncProject63D8AA67",
+            "trace": [
+              "new Project (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-codebuild/lib/project.ts:863:22)",
+              "ReplicationRule.createCodeBuildProject (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:44:21)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:24:26)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainapnortheast1ReplicationRuleSyncProjectEventsRole887669AA",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "Object.singletonEventRole (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:22:16)",
+              "CodeBuildProject.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/codebuild.ts:64:37)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainapnortheast1ReplicationRuleSyncProjectEventsRoleDefaultPolicy0331B7A0",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Role.addToPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:376:17)",
+              "Array.forEach (<anonymous>)",
+              "Object.singletonEventRole (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:26:20)",
+              "CodeBuildProject.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/codebuild.ts:64:37)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainapnortheast1ReplicationRuleReplicaRuleE87C4615",
+            "trace": [
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:130:22)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75BCustomResourcePolicy00FEDC81",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:367:20)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B00334F61",
+            "trace": [
+              "new CustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/custom-resource.ts:119:21)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:374:27)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:560:31)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "trace": [
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:622:35)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3BucketDDD15B67",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "ReplicaStack.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:143:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/code.ts:267:20)",
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:29)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "ReplicaStack.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:143:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/code.ts:267:20)",
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:29)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dArtifactHashBC261AD6",
+            "trace": [
+              "new FileAssetParameters (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "ReplicaStack.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:143:40)",
+              "AssetCode.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/code.ts:267:20)",
+              "new Function (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/function.ts:580:29)",
+              "SingletonFunction.ensureLambda (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:119:12)",
+              "new SingletonFunction (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-lambda/lib/singleton-lambda.ts:55:32)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:335:22)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaLogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainuswest2ReplicationRuleReplicaLogGroup4248C0E3",
+            "trace": [
+              "new LogGroup (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-logs/lib/log-group.ts:373:22)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:20:22)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainuswest2ReplicationRuleSyncProjectCFB83484",
+            "trace": [
+              "new Project (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-codebuild/lib/project.ts:863:22)",
+              "ReplicationRule.createCodeBuildProject (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:44:21)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:24:26)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainuswest2ReplicationRuleSyncProjectEventsRole09A6C850",
+            "trace": [
+              "new Role (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "Object.singletonEventRole (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:22:16)",
+              "CodeBuildProject.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/codebuild.ts:64:37)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainuswest2ReplicationRuleSyncProjectEventsRoleDefaultPolicy14F82627",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "Role.addToPrincipalPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:368:28)",
+              "Role.addToPolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/role.ts:376:17)",
+              "Array.forEach (<anonymous>)",
+              "Object.singletonEventRole (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/util.ts:26:20)",
+              "CodeBuildProject.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/codebuild.ts:64:37)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testmainuswest2ReplicationRuleReplicaRule43AB4559",
+            "trace": [
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:130:22)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/CustomResourcePolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596CustomResourcePolicyF80FE633",
+            "trace": [
+              "new Policy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-iam/lib/policy.ts:154:22)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:367:20)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596180CF6F5",
+            "trace": [
+              "new CustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/custom-resource.ts:119:21)",
+              "new AwsCustomResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/custom-resources/lib/aws-custom-resource/aws-custom-resource.ts:374:27)",
+              "new LogGroupResourcePolicy (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group-resource-policy.ts:34:5)",
+              "CloudWatchLogGroup.bind (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events-targets/lib/log-group.ts:37:7)",
+              "Rule.addTarget (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:166:32)",
+              "new Rule (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/aws-events/lib/rule.ts:150:12)",
+              "new ReplicationRule (/Users/dongkyl/Documents/git/croca/lib/constructs/replication-rule.ts:26:5)",
+              "/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:31:7",
+              "arrayEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:530:11)",
+              "Function.forEach (/Users/dongkyl/Documents/git/croca/node_modules/lodash/lodash.js:9410:14)",
+              "new ReplicaStack (/Users/dongkyl/Documents/git/croca/lib/stacks/replica-stack.ts:29:7)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/bin/infra.ts:10:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:201:5)",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:197:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/dongkyl/Documents/git/croca/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/CrocaReplicaStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:31:27)",
+              "/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:201:5)",
+              "visit (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:197:5)",
+              "injectMetadataResources (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/Users/dongkyl/Documents/git/croca/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/dongkyl/Documents/git/croca/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1460 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.93.0"
+        }
+      },
+      "CrocaOriginStack": {
+        "id": "CrocaOriginStack",
+        "path": "CrocaOriginStack",
+        "children": {
+          "EventReplicationRole": {
+            "id": "EventReplicationRole",
+            "path": "CrocaOriginStack/EventReplicationRole",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaOriginStack/EventReplicationRole/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "Service": "events.amazonaws.com"
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.CfnRole",
+                  "version": "1.93.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "CrocaOriginStack/EventReplicationRole/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaOriginStack/EventReplicationRole/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "events:PutEvents",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            },
+                            {
+                              "Action": "events:PutEvents",
+                              "Effect": "Allow",
+                              "Resource": "arn:aws:events:ap-northeast-2:213809038150:event-bus/croca-replica"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "EventReplicationRoleDefaultPolicy9494DFB5",
+                        "roles": [
+                          {
+                            "Ref": "EventReplicationRole0AF0D664"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-iam.Role",
+              "version": "1.93.0"
+            }
+          },
+          "ReplicaBus": {
+            "id": "ReplicaBus",
+            "path": "CrocaOriginStack/ReplicaBus",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Resource",
+              "version": "1.93.0"
+            }
+          },
+          "CrocaReplicateRule": {
+            "id": "CrocaReplicateRule",
+            "path": "CrocaOriginStack/CrocaReplicateRule",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaOriginStack/CrocaReplicateRule/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                  "aws:cdk:cloudformation:props": {
+                    "description": "Propagate event to replica account",
+                    "eventPattern": {
+                      "source": [
+                        "aws.codecommit"
+                      ],
+                      "detail": {
+                        "event": [
+                          "referenceCreated",
+                          "referenceUpdated"
+                        ],
+                        "repositoryName": [
+                          "test",
+                          "sengl-web"
+                        ],
+                        "referenceName": [
+                          "main"
+                        ]
+                      }
+                    },
+                    "name": "CrocaReplicate",
+                    "state": "ENABLED",
+                    "targets": [
+                      {
+                        "id": "Target0",
+                        "arn": "arn:aws:events:ap-northeast-2:213809038150:event-bus/croca-replica",
+                        "roleArn": {
+                          "Fn::GetAtt": [
+                            "EventReplicationRole0AF0D664",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.CfnRule",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-events.Rule",
+              "version": "1.93.0"
+            }
+          },
+          "CodecommitRole": {
+            "id": "CodecommitRole",
+            "path": "CrocaOriginStack/CodecommitRole",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaOriginStack/CodecommitRole/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "AWS": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":iam::213809038150:root"
+                                ]
+                              ]
+                            }
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    },
+                    "roleName": "CrocaCodecommitReplication"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.CfnRole",
+                  "version": "1.93.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "CrocaOriginStack/CodecommitRole/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaOriginStack/CodecommitRole/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "codecommit:*",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "CodecommitRoleDefaultPolicy89C9943F",
+                        "roles": [
+                          {
+                            "Ref": "CodecommitRole40C25E19"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-iam.Role",
+              "version": "1.93.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "CrocaOriginStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "CrocaOriginStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.93.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "CrocaOriginStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.93.0"
+        }
+      },
+      "CrocaReplicaStack": {
+        "id": "CrocaReplicaStack",
+        "path": "CrocaReplicaStack",
+        "children": {
+          "CrocaReplicaBus": {
+            "id": "CrocaReplicaBus",
+            "path": "CrocaReplicaStack/CrocaReplicaBus",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaReplicaStack/CrocaReplicaBus/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Events::EventBus",
+                  "aws:cdk:cloudformation:props": {
+                    "name": "croca-replica"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.CfnEventBus",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-events.EventBus",
+              "version": "1.93.0"
+            }
+          },
+          "ReplicaPolicy": {
+            "id": "ReplicaPolicy",
+            "path": "CrocaReplicaStack/ReplicaPolicy",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::Events::EventBusPolicy",
+              "aws:cdk:cloudformation:props": {
+                "statementId": "CrocaReplicaStatement",
+                "action": "events:PutEvents",
+                "eventBusName": "croca-replica",
+                "principal": "929831892372"
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-events.CfnEventBusPolicy",
+              "version": "1.93.0"
+            }
+          },
+          "CodeBuildRole": {
+            "id": "CodeBuildRole",
+            "path": "CrocaReplicaStack/CodeBuildRole",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaReplicaStack/CodeBuildRole/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "Service": "codebuild.amazonaws.com"
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    },
+                    "managedPolicyArns": [
+                      "arn:aws:iam::aws:policy/AWSCodeCommitFullAccess",
+                      "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.CfnRole",
+                  "version": "1.93.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "CrocaReplicaStack/CodeBuildRole/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/CodeBuildRole/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "logs:CreateLogGroup",
+                                "logs:CreateLogStream",
+                                "logs:PutLogEvents"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": [
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":logs:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":log-group:/aws/codebuild/",
+                                      {
+                                        "Ref": "testmainapnortheast1ReplicationRuleSyncProject63D8AA67"
+                                      }
+                                    ]
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":logs:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":log-group:/aws/codebuild/",
+                                      {
+                                        "Ref": "testmainapnortheast1ReplicationRuleSyncProject63D8AA67"
+                                      },
+                                      ":*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Action": [
+                                "codebuild:CreateReportGroup",
+                                "codebuild:CreateReport",
+                                "codebuild:UpdateReport",
+                                "codebuild:BatchPutTestCases",
+                                "codebuild:BatchPutCodeCoverages"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":codebuild:",
+                                    {
+                                      "Ref": "AWS::Region"
+                                    },
+                                    ":",
+                                    {
+                                      "Ref": "AWS::AccountId"
+                                    },
+                                    ":report-group/",
+                                    {
+                                      "Ref": "testmainapnortheast1ReplicationRuleSyncProject63D8AA67"
+                                    },
+                                    "-*"
+                                  ]
+                                ]
+                              }
+                            },
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            },
+                            {
+                              "Action": [
+                                "logs:CreateLogGroup",
+                                "logs:CreateLogStream",
+                                "logs:PutLogEvents"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": [
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":logs:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":log-group:/aws/codebuild/",
+                                      {
+                                        "Ref": "testmainuswest2ReplicationRuleSyncProjectCFB83484"
+                                      }
+                                    ]
+                                  ]
+                                },
+                                {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":logs:",
+                                      {
+                                        "Ref": "AWS::Region"
+                                      },
+                                      ":",
+                                      {
+                                        "Ref": "AWS::AccountId"
+                                      },
+                                      ":log-group:/aws/codebuild/",
+                                      {
+                                        "Ref": "testmainuswest2ReplicationRuleSyncProjectCFB83484"
+                                      },
+                                      ":*"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Action": [
+                                "codebuild:CreateReportGroup",
+                                "codebuild:CreateReport",
+                                "codebuild:UpdateReport",
+                                "codebuild:BatchPutTestCases",
+                                "codebuild:BatchPutCodeCoverages"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":codebuild:",
+                                    {
+                                      "Ref": "AWS::Region"
+                                    },
+                                    ":",
+                                    {
+                                      "Ref": "AWS::AccountId"
+                                    },
+                                    ":report-group/",
+                                    {
+                                      "Ref": "testmainuswest2ReplicationRuleSyncProjectCFB83484"
+                                    },
+                                    "-*"
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "CodeBuildRoleDefaultPolicy829527DE",
+                        "roles": [
+                          {
+                            "Ref": "CodeBuildRole728CBADE"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-iam.Role",
+              "version": "1.93.0"
+            }
+          },
+          "test-main-ap-northeast-1-ReplicationRule": {
+            "id": "test-main-ap-northeast-1-ReplicationRule",
+            "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule",
+            "children": {
+              "ReplicaLogGroup": {
+                "id": "ReplicaLogGroup",
+                "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaLogGroup",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaLogGroup/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "retentionInDays": 731
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-logs.LogGroup",
+                  "version": "1.93.0"
+                }
+              },
+              "SyncProject": {
+                "id": "SyncProject",
+                "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                      "aws:cdk:cloudformation:props": {
+                        "artifacts": {
+                          "type": "NO_ARTIFACTS"
+                        },
+                        "environment": {
+                          "type": "LINUX_CONTAINER",
+                          "image": "aws/codebuild/standard:5.0",
+                          "imagePullCredentialsType": "CODEBUILD",
+                          "privilegedMode": false,
+                          "computeType": "BUILD_GENERAL1_SMALL"
+                        },
+                        "serviceRole": {
+                          "Fn::GetAtt": [
+                            "CodeBuildRole728CBADE",
+                            "Arn"
+                          ]
+                        },
+                        "source": {
+                          "type": "NO_SOURCE",
+                          "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"pip install git-remote-codecommit\",\n        \"aws sts get-caller-identity\",\n        \"export ORIG_AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID\",\n        \"export ORIG_AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\",\n        \"export ORIG_AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN\"\n      ]\n    },\n    \"pre_build\": {\n      \"commands\": [\n        \"aws sts assume-role --role-arn arn:aws:iam::929831892372:role/CrocaCodecommitReplication --role-session-name CrocaCode | jq '.Credentials' -r > amz.auth.json\",\n        \"cat amz.auth.json\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"export AWS_ACCESS_KEY_ID=$(cat amz.auth.json | jq '.AccessKeyId' -r)\",\n        \"export AWS_SECRET_ACCESS_KEY=$(cat amz.auth.json | jq '.SecretAccessKey' -r)\",\n        \"export AWS_SESSION_TOKEN=$(cat amz.auth.json | jq '.SessionToken' -r)\",\n        \"aws sts get-caller-identity\",\n        \"git clone --mirror codecommit::ap-northeast-2://test test\",\n        \"cd test\",\n        \"export AWS_ACCESS_KEY_ID=$ORIG_AWS_ACCESS_KEY_ID\",\n        \"export AWS_SECRET_ACCESS_KEY=$ORIG_AWS_SECRET_ACCESS_KEY\",\n        \"export AWS_SESSION_TOKEN=$ORIG_AWS_SESSION_TOKEN\",\n        \"aws sts get-caller-identity\",\n        \"git remote set-url --push origin codecommit::ap-northeast-1://test\",\n        \"git push origin\",\n        \"cd ..\"\n      ]\n    }\n  }\n}"
+                        },
+                        "encryptionKey": "alias/aws/s3"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-codebuild.CfnProject",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "EventsRole": {
+                    "id": "EventsRole",
+                    "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "events.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.CfnRole",
+                          "version": "1.93.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/SyncProject/EventsRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "codebuild:StartBuild",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "testmainapnortheast1ReplicationRuleSyncProject63D8AA67",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "testmainapnortheast1ReplicationRuleSyncProjectEventsRoleDefaultPolicy0331B7A0",
+                                "roles": [
+                                  {
+                                    "Ref": "testmainapnortheast1ReplicationRuleSyncProjectEventsRole887669AA"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                              "version": "1.93.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Policy",
+                          "version": "1.93.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.Role",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-codebuild.Project",
+                  "version": "1.93.0"
+                }
+              },
+              "ReplicaRule": {
+                "id": "ReplicaRule",
+                "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaRule",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-ap-northeast-1-ReplicationRule/ReplicaRule/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                      "aws:cdk:cloudformation:props": {
+                        "eventBusName": {
+                          "Ref": "CrocaReplicaBusB8B9DFE0"
+                        },
+                        "eventPattern": {
+                          "source": [
+                            "aws.codecommit"
+                          ],
+                          "detail": {
+                            "event": [
+                              "referenceCreated",
+                              "referenceUpdated"
+                            ],
+                            "repositoryName": [
+                              "test"
+                            ],
+                            "referenceName": [
+                              "main"
+                            ]
+                          }
+                        },
+                        "state": "ENABLED",
+                        "targets": [
+                          {
+                            "id": "Target0",
+                            "arn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":logs:",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":log-group:",
+                                  {
+                                    "Ref": "testmainapnortheast1ReplicationRuleReplicaLogGroup805A9102"
+                                  }
+                                ]
+                              ]
+                            }
+                          },
+                          {
+                            "id": "Target1",
+                            "arn": {
+                              "Fn::GetAtt": [
+                                "testmainapnortheast1ReplicationRuleSyncProject63D8AA67",
+                                "Arn"
+                              ]
+                            },
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "testmainapnortheast1ReplicationRuleSyncProjectEventsRole887669AA",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-events.CfnRule",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.Rule",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          },
+          "EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B": {
+            "id": "EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B",
+            "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B",
+            "children": {
+              "Provider": {
+                "id": "Provider",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/Provider",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.SingletonFunction",
+                  "version": "1.93.0"
+                }
+              },
+              "CustomResourcePolicy": {
+                "id": "CustomResourcePolicy",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/CustomResourcePolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/CustomResourcePolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "logs:PutResourcePolicy",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            },
+                            {
+                              "Action": "logs:DeleteResourcePolicy",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75BCustomResourcePolicy00FEDC81",
+                        "roles": [
+                          {
+                            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.93.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/Resource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainapnortheast1ReplicationRuleReplicaRuleD8E0B75B/Resource/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CustomResource",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/custom-resources.AwsCustomResource",
+              "version": "1.93.0"
+            }
+          },
+          "AWS679f53fac002430cb0da5b7982bd2287": {
+            "id": "AWS679f53fac002430cb0da5b7982bd2287",
+            "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Role",
+                  "version": "1.93.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.Resource",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.93.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaReplicaStack/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3BucketDDD15B67"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersa5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04dS3VersionKey76284988"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "index.handler",
+                    "runtime": "nodejs12.x",
+                    "timeout": 120
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda.Function",
+              "version": "1.93.0"
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "CrocaReplicaStack/AssetParameters",
+            "children": {
+              "a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d": {
+                "id": "a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d",
+                "path": "CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "CrocaReplicaStack/AssetParameters/a5a55f40f05c1031f30cc935c76b58b0b7dbc81e70845edf4ef615d6580ae04d/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          },
+          "test-main-us-west-2-ReplicationRule": {
+            "id": "test-main-us-west-2-ReplicationRule",
+            "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule",
+            "children": {
+              "ReplicaLogGroup": {
+                "id": "ReplicaLogGroup",
+                "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaLogGroup",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaLogGroup/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "retentionInDays": 731
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-logs.LogGroup",
+                  "version": "1.93.0"
+                }
+              },
+              "SyncProject": {
+                "id": "SyncProject",
+                "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                      "aws:cdk:cloudformation:props": {
+                        "artifacts": {
+                          "type": "NO_ARTIFACTS"
+                        },
+                        "environment": {
+                          "type": "LINUX_CONTAINER",
+                          "image": "aws/codebuild/standard:5.0",
+                          "imagePullCredentialsType": "CODEBUILD",
+                          "privilegedMode": false,
+                          "computeType": "BUILD_GENERAL1_SMALL"
+                        },
+                        "serviceRole": {
+                          "Fn::GetAtt": [
+                            "CodeBuildRole728CBADE",
+                            "Arn"
+                          ]
+                        },
+                        "source": {
+                          "type": "NO_SOURCE",
+                          "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"pip install git-remote-codecommit\",\n        \"aws sts get-caller-identity\",\n        \"export ORIG_AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID\",\n        \"export ORIG_AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY\",\n        \"export ORIG_AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN\"\n      ]\n    },\n    \"pre_build\": {\n      \"commands\": [\n        \"aws sts assume-role --role-arn arn:aws:iam::929831892372:role/CrocaCodecommitReplication --role-session-name CrocaCode | jq '.Credentials' -r > amz.auth.json\",\n        \"cat amz.auth.json\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"export AWS_ACCESS_KEY_ID=$(cat amz.auth.json | jq '.AccessKeyId' -r)\",\n        \"export AWS_SECRET_ACCESS_KEY=$(cat amz.auth.json | jq '.SecretAccessKey' -r)\",\n        \"export AWS_SESSION_TOKEN=$(cat amz.auth.json | jq '.SessionToken' -r)\",\n        \"aws sts get-caller-identity\",\n        \"git clone --mirror codecommit::ap-northeast-2://test test\",\n        \"cd test\",\n        \"export AWS_ACCESS_KEY_ID=$ORIG_AWS_ACCESS_KEY_ID\",\n        \"export AWS_SECRET_ACCESS_KEY=$ORIG_AWS_SECRET_ACCESS_KEY\",\n        \"export AWS_SESSION_TOKEN=$ORIG_AWS_SESSION_TOKEN\",\n        \"aws sts get-caller-identity\",\n        \"git remote set-url --push origin codecommit::us-west-2://test\",\n        \"git push origin\",\n        \"cd ..\"\n      ]\n    }\n  }\n}"
+                        },
+                        "encryptionKey": "alias/aws/s3"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-codebuild.CfnProject",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "EventsRole": {
+                    "id": "EventsRole",
+                    "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "events.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.CfnRole",
+                          "version": "1.93.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/SyncProject/EventsRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "codebuild:StartBuild",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "testmainuswest2ReplicationRuleSyncProjectCFB83484",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "testmainuswest2ReplicationRuleSyncProjectEventsRoleDefaultPolicy14F82627",
+                                "roles": [
+                                  {
+                                    "Ref": "testmainuswest2ReplicationRuleSyncProjectEventsRole09A6C850"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                              "version": "1.93.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.Policy",
+                          "version": "1.93.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.Role",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-codebuild.Project",
+                  "version": "1.93.0"
+                }
+              },
+              "ReplicaRule": {
+                "id": "ReplicaRule",
+                "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaRule",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/test-main-us-west-2-ReplicationRule/ReplicaRule/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                      "aws:cdk:cloudformation:props": {
+                        "eventBusName": {
+                          "Ref": "CrocaReplicaBusB8B9DFE0"
+                        },
+                        "eventPattern": {
+                          "source": [
+                            "aws.codecommit"
+                          ],
+                          "detail": {
+                            "event": [
+                              "referenceCreated",
+                              "referenceUpdated"
+                            ],
+                            "repositoryName": [
+                              "test"
+                            ],
+                            "referenceName": [
+                              "main"
+                            ]
+                          }
+                        },
+                        "state": "ENABLED",
+                        "targets": [
+                          {
+                            "id": "Target0",
+                            "arn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":logs:",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":log-group:",
+                                  {
+                                    "Ref": "testmainuswest2ReplicationRuleReplicaLogGroup4248C0E3"
+                                  }
+                                ]
+                              ]
+                            }
+                          },
+                          {
+                            "id": "Target1",
+                            "arn": {
+                              "Fn::GetAtt": [
+                                "testmainuswest2ReplicationRuleSyncProjectCFB83484",
+                                "Arn"
+                              ]
+                            },
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "testmainuswest2ReplicationRuleSyncProjectEventsRole09A6C850",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-events.CfnRule",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.Rule",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          },
+          "EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596": {
+            "id": "EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596",
+            "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596",
+            "children": {
+              "Provider": {
+                "id": "Provider",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/Provider",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.SingletonFunction",
+                  "version": "1.93.0"
+                }
+              },
+              "CustomResourcePolicy": {
+                "id": "CustomResourcePolicy",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/CustomResourcePolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/CustomResourcePolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "logs:PutResourcePolicy",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            },
+                            {
+                              "Action": "logs:DeleteResourcePolicy",
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596CustomResourcePolicyF80FE633",
+                        "roles": [
+                          {
+                            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.93.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/Resource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "CrocaReplicaStack/EventsLogGroupPolicyCrocaReplicaStacktestmainuswest2ReplicationRuleReplicaRule7D825596/Resource/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CustomResource",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/custom-resources.AwsCustomResource",
+              "version": "1.93.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "CrocaReplicaStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "CrocaReplicaStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.93.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "CrocaReplicaStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.93.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.93.0"
+    }
+  }
+}

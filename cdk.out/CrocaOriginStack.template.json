@@ -1,0 +1,334 @@
+{
+  "Resources": {
+    "EventReplicationRole0AF0D664": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "events.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/EventReplicationRole/Resource"
+      }
+    },
+    "EventReplicationRoleDefaultPolicy9494DFB5": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "events:PutEvents",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": "events:PutEvents",
+              "Effect": "Allow",
+              "Resource": "arn:aws:events:ap-northeast-2:213809038150:event-bus/croca-replica"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "EventReplicationRoleDefaultPolicy9494DFB5",
+        "Roles": [
+          {
+            "Ref": "EventReplicationRole0AF0D664"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/EventReplicationRole/DefaultPolicy/Resource"
+      }
+    },
+    "CrocaReplicateRuleB09AF36E": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "Description": "Propagate event to replica account",
+        "EventPattern": {
+          "source": [
+            "aws.codecommit"
+          ],
+          "detail": {
+            "event": [
+              "referenceCreated",
+              "referenceUpdated"
+            ],
+            "repositoryName": [
+              "test",
+              "sengl-web"
+            ],
+            "referenceName": [
+              "main"
+            ]
+          }
+        },
+        "Name": "CrocaReplicate",
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": "arn:aws:events:ap-northeast-2:213809038150:event-bus/croca-replica",
+            "Id": "Target0",
+            "RoleArn": {
+              "Fn::GetAtt": [
+                "EventReplicationRole0AF0D664",
+                "Arn"
+              ]
+            }
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/CrocaReplicateRule/Resource"
+      }
+    },
+    "CodecommitRole40C25E19": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::213809038150:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "RoleName": "CrocaCodecommitReplication"
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/CodecommitRole/Resource"
+      }
+    },
+    "CodecommitRoleDefaultPolicy89C9943F": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "codecommit:*",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "CodecommitRoleDefaultPolicy89C9943F",
+        "Roles": [
+          {
+            "Ref": "CodecommitRole40C25E19"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/CodecommitRole/DefaultPolicy/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAAE0WOXQrCMBCEz+J7ujUogm9CLyDxBCXZwvZnF/JTkZC7m7aCT9/szDCshvsFzqdH/w6NdVObrXiE/Iq9nZTBIMlbVJ1wiD7ZqLqB/+7ANXAUSbiobSFTv0A2Mu/hzqfMZD/beaiicEWOodbSr1ZZSlEsDmEM7aqvoG/1qTEQNT5xpAXBHPwCMoHxP7AAAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "CrocaOriginStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
