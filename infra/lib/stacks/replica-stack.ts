@@ -10,10 +10,10 @@ export class ReplicaStack extends cdk.Stack {
     super(scope, id, props)
 
     const eventBus = new events.EventBus(this, `${App.Namespace}ReplicaBus`, {
-      eventBusName: Replica.EventBusName,
+      eventBusName: App.EventBusName,
     })
     new events.CfnEventBusPolicy(this, `ReplicaPolicy`, {
-      eventBusName: Replica.EventBusName,
+      eventBusName: App.EventBusName,
       statementId: `${App.Namespace}ReplicaStatement`,
       action: 'events:PutEvents',
       principal: Origin.AccountId,
