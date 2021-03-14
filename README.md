@@ -25,7 +25,7 @@ $ cdk bootstrap
 
 # Usage
 
-This CDK project is consists of 2 parts,
+This CDK project consists of 2 parts,
 
 - [**OriginStack**](/infra/lib/stacks/origin-stack.ts)
 - [**ReplicaStack**](/infra/lib/stacks/replica-stack.ts)
@@ -54,12 +54,12 @@ export namespace Origin {
   export const ReplicaAccounts: IReplicaAccount[] = [
     {
       AccountId: '924918149261',
-      Region: 'ap-northeast-2',
+      Region: 'ap-northeast-1',
       EventBusName: App.EventBusName,
     },
     {
       AccountId: '735029250372',
-      Region: 'ap-northeast-1',
+      Region: 'us-west-2',
       EventBusName: App.EventBusName,
     }
   ]
@@ -67,6 +67,14 @@ export namespace Origin {
   export const BranchNames: string[] = ['main', 'release']
 }
 ```
+
+note that you must put all the account and region pairs to be replicated into `ReplicaAccounts`.
+
+here is explaination of above origin setting in plain english,
+
+`on account **213809038850** in region **ap-northeast-2**, \
+if modification occurs on repositories, myapp:[main|release] and otherapp:[main|release], \
+then the modification events will be propagated to event buss on replication accounts, **924918149261** and **735029250372**`
 
 ### Deploy OriginStack on Origin Account
 
@@ -77,6 +85,8 @@ $ cdk deploy CrocaOriginStack --require-approval never --profile default
 ## ReplicaStack
 
 ReplicaStack should be deployed on the replica account having repositories to be replicated from the origin account
+
+**Note: If you want to deploy ReplicaStack on more than two accounts, you should have a config file for each account**
 
 ### Setup config
 
@@ -108,6 +118,8 @@ export namespace Replica {
 ```
 
 ### Deploy ReplicaStack on Replica Account
+
+As metioned above, you should deploy ReplicaStack on each replication account.
 
 ```bash
 $ cdk deploy CrocaReplicaStack --require-approval never --profile replica
