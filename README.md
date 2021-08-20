@@ -16,7 +16,7 @@ This repository is for replicating codecommit repositories across accounts
 Install project dependencies
 
 ```bash
-$ npm i -g cdk@1.93.0
+$ npm i -g cdk@1.117.0
 
 $ cd infra
 $ npm i
